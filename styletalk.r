@@ -616,7 +616,7 @@ parser: context [
 	; Output
 	render: does [
 		rejoin collect [
-			keep {/* CSSR Output */^/}
+			keep {/* StyleTalk Output */^/}
 			if all [
 				block? google-fonts
 				not empty? google-fonts
@@ -645,14 +645,14 @@ parser: context [
 				keep reset
 				keep "/* CSS Reset End **/^/"
 			]
-			keep "^//** CSSR Output Begin */^/^/"
+			keep "^//** StyleTalk Output Begin */^/^/"
 			foreach [selector rule] rules [
 				keep selector
 				keep " "
 				keep rule/render
 				keep "^/"
 			]
-			keep "^/^//* CSSR Output End **/^/"
+			keep "^/^//* StyleTalk Output End **/^/"
 		]
 	]
 
