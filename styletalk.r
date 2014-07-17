@@ -230,7 +230,7 @@ parser: context [
 	position-x: ['right | 'left | 'center]
 	position-y: ['top | 'bottom | 'middle]
 	position: [position-y | position-x]
-	positions: [position-y position-x | position-y | position-x]
+	positions: [position-x position-y | position-y position-x | position-y | position-x]
 	repeats: ['repeat-x | 'repeat-y | 'repeat ['x | 'y] | 'no-repeat | 'no 'repeat]
 	font-name: [string! | 'sans-serif | 'serif | 'monospace]
 	length: [em | pt | px | percent | vh | vw]
