@@ -1,7 +1,7 @@
 Rebol [
 	Title: "StyleTalk"
 	Purpose: "Compact Style Sheets in Rebol"
-	Version: 0.2.0
+	Version: 0.2.1
 	Date: 17-Jun-2013
 	Author: "Christopher Ross-Gill"
 	Name: 'styletalk
@@ -413,6 +413,26 @@ parser: context [
 		| 'border any [
 			  mark 1 4 border-style capture (emits 'border-style)
 			| mark 1 4 color capture (emits 'border-color)
+			| 'top any [
+				  mark length capture (emits 'border-top-length)
+				| mark border-style capture (emits 'border-top-style)
+				| mark color capture (emits 'border-top-color)
+			]
+			| 'bottom any [
+				  mark length capture (emits 'border-bottom-length)
+				| mark border-style capture (emits 'border-bottom-style)
+				| mark color capture (emits 'border-bottom-color)
+			]
+			| 'right any [
+				  mark length capture (emits 'border-right-length)
+				| mark border-style capture (emits 'border-right-style)
+				| mark color capture (emits 'border-right-color)
+			]
+			| 'left any [
+				  mark length capture (emits 'border-left-length)
+				| mark border-style capture (emits 'border-left-style)
+				| mark color capture (emits 'border-left-color)
+			]
 			| 'radius [
 				some [
 					  'top mark 1 2 length capture (
