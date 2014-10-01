@@ -254,8 +254,11 @@ parser: context [
 			[no bold] 'normal
 			[no italic] 'normal
 			[no underline] 'none
+			[no smallcaps] 'normal
 			[inline block] 'inline-block
 			[line height] 'line-height
+			[small caps] 'small-caps
+			[smallcaps] 'small-caps
 		][
 			replace value from to
 		]
@@ -487,6 +490,7 @@ parser: context [
 		| mark opt 'no 'italic capture (emits 'font-style)
 		| mark opt 'no 'underline capture (emits 'text-decoration)
 		| ['line-through | 'strike 'through] (emit 'text-decoration 'line-through)
+		| mark 'small-caps capture (emits 'font-variant)
 		| 'shadow mark pair length color capture (emits 'box-shadow)
 		| 'color mark [color | 'inherit] capture (emits 'color)
 		| mark ['relative | 'absolute | 'fixed] capture (emits 'position) any [
