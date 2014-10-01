@@ -1,7 +1,7 @@
 Rebol [
 	Title: "StyleTalk"
 	Purpose: "Compact Style Sheets in Rebol"
-	Version: 0.2.1
+	Version: 0.2.2
 	Date: 17-Jun-2013
 	Author: "Christopher Ross-Gill"
 	Name: 'styletalk
@@ -522,7 +522,7 @@ parser: context [
 		| mark 'pointer capture (emits 'cursor)
 		| ['canvas | 'background] any [
 			  mark color capture (emits 'background-color)
-			| mark [file! | url!] (emits 'background-image)
+			| mark [file! | url!] capture (emits 'background-image)
 			| mark positions capture (emits 'background-position)
 			| mark repeats capture (emits 'background-repeat)
 			| mark ['contain | 'cover] capture (emits 'background-size)
