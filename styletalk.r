@@ -1,7 +1,7 @@
 Rebol [
 	Title: "StyleTalk"
 	Purpose: "Compact Style Sheets in Rebol"
-	Version: 0.2.2
+	Version: 0.2.3
 	Date: 17-Jun-2013
 	Author: "Christopher Ross-Gill"
 	Name: 'styletalk
@@ -242,9 +242,10 @@ parser: context [
 	; parse block [mark ... capture (:captured)]
 	mark: capture: captured: none
 	use [start extent][
-		mark: [start:]
+		mark: [(captured: []) start:]
 		capture: [extent: (new-line/all captured: copy/part start extent false)]
 	]
+
 	emit: func [name [word!] value [any-type!]][
 		value: compose [(value)]
 		; change all the non-standard words
@@ -260,6 +261,7 @@ parser: context [
 		]
 		current/set name value
 	]
+
 	emits: func [name [word!]][
 		emit name captured
 	]
