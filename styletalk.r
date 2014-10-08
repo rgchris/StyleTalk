@@ -470,6 +470,11 @@ parser: context [
 		]
 		| ['radius | 'rounded] mark length capture (emits 'border-radius)
 		| 'rounded (emit 'border-radius [em 0.6])
+		| 'outline any [
+			  mark 1 4 border-style capture (emits 'outline-style)
+			| mark 1 4 color capture (emits 'outline-color)
+			| mark 1 4 length capture (emits 'outline-width)
+		]
 		| 'font any [
 			  mark length capture (emits 'font-size)
 			| mark some font-name capture (
