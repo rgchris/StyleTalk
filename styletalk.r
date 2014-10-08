@@ -215,7 +215,10 @@ parser: context [
 		'red | 'silver | 'teal | 'white | 'yellow
 	]
 	text-style: ['bold | 'italic | 'underline]
-	border-style: ['solid | 'dotted | 'dashed]
+	border-style: [ 
+		'none | 'hidden | 'dotted | 'dashed | 'solid | 'double | 
+		'groove | 'ridge | 'inset | 'outset | 'initial
+	]
 	transition-attribute: [
 		  'width | 'height | 'top | 'bottom | 'right | 'left | 'z-index
 		| 'background | 'color | 'border | 'opacity | 'margin
