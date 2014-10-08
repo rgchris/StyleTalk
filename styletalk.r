@@ -531,7 +531,7 @@ parser: context [
 		]
 		| mark 'preserve-3d capture (emits 'transform-style)
 		| 'hide (emit 'display none)
-		| 'float mark position-x capture (emits 'float)
+		| 'float mark ['none | position-x] capture (emits 'float)
 		| 'opaque (emit 'opacity 1)
 		| mark 'pointer capture (emits 'cursor)
 		| ['canvas | 'background] any [
