@@ -215,7 +215,10 @@ parser: context [
 		'red | 'silver | 'teal | 'white | 'yellow
 	]
 	text-style: ['bold | 'italic | 'underline]
-	border-style: ['solid | 'dotted | 'dashed]
+	border-style: [ 
+		'none | 'hidden | 'dotted | 'dashed | 'solid | 'double | 
+		'groove | 'ridge | 'inset | 'outset | 'initial
+	]
 	transition-attribute: [
 		  'width | 'height | 'top | 'bottom | 'right | 'left | 'z-index
 		| 'background | 'color | 'border | 'opacity | 'margin
@@ -467,6 +470,11 @@ parser: context [
 		]
 		| ['radius | 'rounded] mark length capture (emits 'border-radius)
 		| 'rounded (emit 'border-radius [em 0.6])
+		| 'outline any [
+			  mark 1 4 border-style capture (emits 'outline-style)
+			| mark 1 4 color capture (emits 'outline-color)
+			| mark 1 4 length capture (emits 'outline-width)
+		]
 		| 'font any [
 			  mark length capture (emits 'font-size)
 			| mark some font-name capture (
@@ -523,7 +531,7 @@ parser: context [
 		]
 		| mark 'preserve-3d capture (emits 'transform-style)
 		| 'hide (emit 'display none)
-		| 'float mark position-x capture (emits 'float)
+		| 'float mark ['none | position-x] capture (emits 'float)
 		| 'opaque (emit 'opacity 1)
 		| mark 'pointer capture (emits 'cursor)
 		| ['canvas | 'background] any [
